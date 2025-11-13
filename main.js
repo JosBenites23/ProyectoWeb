@@ -1,7 +1,7 @@
 const requestForm = document.getElementById('request-form');
 const inputField = document.getElementById('input-region');
 const buttonSearch = document.getElementById('btn-search');
-console.log(requestForm, inputField, buttonSearch);
+console.log(requestForm, inputField, buttonSearch); 
 
 
 buttonSearch.addEventListener('click', (e) => {
