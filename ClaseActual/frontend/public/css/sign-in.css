@@ -1,25 +1,71 @@
 html,
 body {
   height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Modern gradient background */
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
 }
 
 .form-signin {
-  max-width: 330px;
-  padding: 1rem;
+  max-width: 400px; /* Slightly wider form */
+  padding: 2rem; /* More padding */
+  margin: auto; /* Ensure auto margins for responsiveness */
+  background-color: #ffffff; /* White background for the form */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  color: #333; /* Darker text for readability */
+}
+
+.form-signin h1 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 .form-signin .form-floating:focus-within {
   z-index: 2;
 }
 
+.form-signin input[type="email"],
+.form-signin input[type="password"] {
+  border-radius: 8px; /* Slightly rounded input fields */
+  margin-bottom: 1rem; /* Consistent margin */
+}
+
+/* Specific adjustments for stacked inputs if needed */
 .form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 8px; /* Keep consistent with top */
+  border-bottom-left-radius: 8px;
 }
 
 .form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  border-top-left-radius: 8px; /* Keep consistent with bottom */
+  border-top-right-radius: 8px;
+}
+
+.form-signin .btn-primary {
+  background-color: #667eea;
+  border-color: #667eea;
+  font-weight: 600;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.form-signin .btn-primary:hover {
+  background-color: #5a6edb;
+  border-color: #5a6edb;
+}
+
+.form-signin a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.form-signin a:hover {
+  text-decoration: underline;
+}
+
+.form-signin .text-body-secondary {
+  color: #6c757d !important; /* Adjust footer text color */
+  font-size: 0.85rem;
 }

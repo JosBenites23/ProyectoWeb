@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Panel de administración para gestionar espacios" />
+    <meta name="author" content="Your Name" />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title>Admin - Gestión de Espacios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Custom Application CSS -->
+    <link href="../../public/css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">BookingSystem</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="espacios.html">Espacios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mis_reservas.html">Mis Reservas</a>
+                    </li>
+                    <!-- Admin Links (only visible if admin is logged in - JS logic needed) -->
+                    <li class="nav-item admin-link" style="display:none;">
+                        <a class="nav-link active" aria-current="page" href="admin_espacios.html">Gestionar Espacios</a>
+                    </li>
+                    <li class="nav-item admin-link" style="display:none;">
+                        <a class="nav-link" href="admin_dashboard.html">Dashboard Admin</a>
+                    </li>
+                    <li class="nav-item admin-link" style="display:none;">
+                        <a class="nav-link" href="admin_reservas.html">Historial Reservas</a>
+                    </li>
+                    <li class="nav-item admin-link" style="display:none;">
+                        <a class="nav-link" href="usuarios.html">Gestionar Usuarios</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item user-anon-link" style="display:none;">
+                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item user-anon-link" style="display:none;">
+                        <a class="nav-link" href="registro.html">Registrarse</a>
+                    </li>
+                    <li class="nav-item user-logged-in-link" style="display:none;">
+                        <button id="logout-button-navbar" class="btn btn-outline-light ms-2">Cerrar Sesión</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        <h1 class="h3 mb-3 fw-normal text-center">Panel de Administración de Espacios</h1>
+
+        <!-- Formulario para agregar/editar espacio -->
+        <div class="card mb-4">
+            <div class="card-header" id="form-title">Agregar Nuevo Espacio</div>
+            <div class="card-body">
+                <form id="espacio-form">
+                    <input type="hidden" id="espacio-id" name="id">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="capacidad" class="form-label">Capacidad</label>
+                            <input type="number" class="form-control" id="capacidad" name="capacidad" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="precio_diario" class="form-label">Precio Diario</label>
+                            <input type="number" step="0.01" class="form-control" id="precio_diario" name="precio_diario" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="tipo_espacio" class="form-label">Tipo de Espacio</label>
+                            <input type="text" class="form-control" id="tipo_espacio" name="tipo_espacio" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="politicas_reserva" class="form-label">Políticas de Reserva</label>
+                        <textarea class="form-control" id="politicas_reserva" name="politicas_reserva"></textarea>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="activo" name="activo" checked>
+                        <label class="form-check-label" for="activo">
+                            Activo
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submit-button">Agregar Espacio</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-edit-button" style="display:none;">Cancelar Edición</button>
+                </form>
+            </div>
+        </div>
+
+        <h2 class="mt-5 mb-3 text-center">Listado de Espacios</h2>
+        <div id="espacios-admin-list" class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Capacidad</th>
+                        <th>Precio Diario</th>
+                        <th>Activo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los espacios se cargarán aquí -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../public/js/admin_espacios.js"></script>
+</body>
+
+</html>

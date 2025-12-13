@@ -1,0 +1,13 @@
+{
+    "name": "user/backend",
+    "authors": [
+        {
+            "name": "joseBenites",
+            "email": "yopue12@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^7.0",
+        "chillerlan/php-qrcode": "^5.0"
+    }
+}

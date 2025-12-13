@@ -1,0 +1,48 @@
+body {
+    background-color: #f8f9fa; /* Light background for general app pages */
+}
+
+/* Navbar adjustments */
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+/* General container spacing */
+main.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Card styling for spaces */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
+    color: #343a40;
+    font-weight: 600;
+}
+
+.list-group-item {
+    font-size: 0.95rem;
+}
+
+.btn-group .btn {
+    border-radius: 5px !important; /* Ensure buttons have some border-radius */
+}
+
+/* Specific styling for forms that use form-signin for consistency */
+.form-signin {
+    /* Styles already defined in sign-in.css, ensure it's linked */
+}

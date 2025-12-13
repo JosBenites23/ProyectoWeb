@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Página para visualizar y reservar espacios disponibles." />
+    <meta name="author" content="Your Name" />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title>Espacios Disponibles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Custom Application CSS -->
+    <link href="../../public/css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">BookingSystem</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="espacios.html">Espacios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mis_reservas.html">Mis Reservas</a>
+                    </li>
+                    <!-- Admin Links (only visible if admin is logged in - JS logic needed) -->
+                    <li class="nav-item admin-link" style="display:none;">
+                        <a class="nav-link" href="admin_espacios.html">Gestionar Espacios</a>
+                    </li>
+                    <li class="nav-item admin-link" style="display:none;">
+                        <a class="nav-link" href="admin_dashboard.html">Dashboard Admin</a>
+                    </li>
+                    <li class="nav-item admin-link" style="display:none;">
+                        <a class="nav-link" href="admin_reservas.html">Historial Reservas</a>
+                    </li>
+                    <li class="nav-item admin-link" style="display:none;">
+                        <a class="nav-link" href="usuarios.html">Gestionar Usuarios</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item user-anon-link">
+                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item user-anon-link">
+                        <a class="nav-link" href="registro.html">Registrarse</a>
+                    </li>
+                    <li class="nav-item user-logged-in-link" style="display:none;">
+                        <button id="logout-button-navbar" class="btn btn-outline-light ms-2">Cerrar Sesión</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h3 fw-normal mb-0">Espacios Disponibles</h1>
+        </div>
+        <div id="espacios-list" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Espacios se cargarán aquí -->
+        </div>
+
+        <!-- Hidden section for date selection -->
+        <div id="booking-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="bookingModalLabel">Reservar <span id="modal-espacio-nombre"></span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="booking-form">
+                  <input type="hidden" id="booking-espacio-id" name="id_espacio">
+                  <div class="mb-3">
+                    <label for="date-range-picker" class="form-label">Selecciona Fechas</label>
+                    <input type="text" class="form-control" id="date-range-picker" placeholder="Selecciona el rango de fechas" name="fechas" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../../public/js/espacios.js"></script>
+</body>
+
+</html>
