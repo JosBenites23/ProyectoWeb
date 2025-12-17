@@ -5,8 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Página para visualizar y reservar espacios disponibles." />
-    <meta name="author" content="Your Name" />
-    <meta name="generator" content="Astro v5.13.2" />
     <title>Espacios Disponibles</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -20,7 +18,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">BookingSystem</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -69,25 +68,28 @@
         </div>
 
         <!-- Hidden section for date selection -->
-        <div id="booking-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="bookingModalLabel">Reservar <span id="modal-espacio-nombre"></span></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form id="booking-form">
-                  <input type="hidden" id="booking-espacio-id" name="id_espacio">
-                  <div class="mb-3">
-                    <label for="date-range-picker" class="form-label">Selecciona Fechas</label>
-                    <input type="text" class="form-control" id="date-range-picker" placeholder="Selecciona el rango de fechas" name="fechas" required>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
-                </form>
-              </div>
+        <div id="booking-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bookingModalLabel">Reservar <span id="modal-espacio-nombre"></span>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="booking-form">
+                            <input type="hidden" id="booking-espacio-id" name="id_espacio">
+                            <div class="mb-3">
+                                <label for="date-range-picker" class="form-label">Selecciona Fechas</label>
+                                <input type="text" class="form-control" id="date-range-picker"
+                                    placeholder="Selecciona el rango de fechas" name="fechas" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
 
     </main>

@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                     // Almacenar datos del usuario en localStorage
                     localStorage.setItem('user', JSON.stringify(result.user));
                     // Redirigir al usuario a una página principal o dashboard
-                    window.location.href = 'usuarios.html'; // Redirigir a la página de usuarios como ejemplo
+                    window.location.href = 'espacios.html'; // Redirigir a la página de usuarios como ejemplo
                 } else {
                     alert(result.message || 'Error al iniciar sesión. Verifique sus credenciales.');
                 }

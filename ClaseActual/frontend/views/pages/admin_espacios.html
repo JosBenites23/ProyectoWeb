@@ -5,8 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Panel de administración para gestionar espacios" />
-    <meta name="author" content="Your Name" />
-    <meta name="generator" content="Astro v5.13.2" />
     <title>Admin - Gestión de Espacios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -18,7 +16,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">BookingSystem</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -30,16 +29,16 @@
                         <a class="nav-link" href="mis_reservas.html">Mis Reservas</a>
                     </li>
                     <!-- Admin Links (only visible if admin is logged in - JS logic needed) -->
-                    <li class="nav-item admin-link" style="display:none;">
+                    <li class="nav-item admin-link">
                         <a class="nav-link active" aria-current="page" href="admin_espacios.html">Gestionar Espacios</a>
                     </li>
-                    <li class="nav-item admin-link" style="display:none;">
+                    <li class="nav-item admin-link">
                         <a class="nav-link" href="admin_dashboard.html">Dashboard Admin</a>
                     </li>
-                    <li class="nav-item admin-link" style="display:none;">
+                    <li class="nav-item admin-link">
                         <a class="nav-link" href="admin_reservas.html">Historial Reservas</a>
                     </li>
-                    <li class="nav-item admin-link" style="display:none;">
+                    <li class="nav-item admin-link">
                         <a class="nav-link" href="usuarios.html">Gestionar Usuarios</a>
                     </li>
                 </ul>
@@ -82,7 +81,8 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="precio_diario" class="form-label">Precio Diario</label>
-                            <input type="number" step="0.01" class="form-control" id="precio_diario" name="precio_diario" required>
+                            <input type="number" step="0.01" class="form-control" id="precio_diario"
+                                name="precio_diario" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="tipo_espacio" class="form-label">Tipo de Espacio</label>
@@ -100,7 +100,8 @@
                         </label>
                     </div>
                     <button type="submit" class="btn btn-primary" id="submit-button">Agregar Espacio</button>
-                    <button type="button" class="btn btn-secondary" id="cancel-edit-button" style="display:none;">Cancelar Edición</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-edit-button"
+                        style="display:none;">Cancelar Edición</button>
                 </form>
             </div>
         </div>
